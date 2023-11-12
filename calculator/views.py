@@ -130,3 +130,11 @@ class FinanceData(APIView):
             financial_data.delete()
             return Response("Financial data deleted successfully", status=status.HTTP_204_NO_CONTENT)
         return Response("No financial data found with this email", status=status.HTTP_404_NOT_FOUND)
+
+
+class TestView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        print(request.META.get('HTTP_AUTHORIZATION'))
+        return Response("doone", status=status.HTTP_200_OK)

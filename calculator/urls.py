@@ -15,5 +15,6 @@ urlpatterns = [
     path('api/v1/logout/', LogoutView.as_view(), name='auth_logout'),
     path('api/v1/change-password/', ChangePasswordView.as_view(), name='change-password'),
     path('api/v1/financial-datas/', CreateFinancialData.as_view(), name='financial-data'),
-    path('api/v1/financial-data/<int:pk>/', FinanceData.as_view(), name='update-financial-data')
+    path('api/v1/financial-data/<int:pk>/', FinanceData.as_view(), name='update-financial-data'),
+    path('api/v1/test/', TestView.as_view(), name='update-financial-data'),
 ]
