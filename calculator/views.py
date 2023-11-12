@@ -21,6 +21,11 @@ class SignUpView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class SigninView(TokenObtainPairView):
+    # Replace the serializer with your custom
+    serializer_class = MyTokenObtainPairSerializer
+
+
 class LogoutView(APIView):
     permission_classes = (IsAuthenticated,)
 
@@ -125,4 +130,3 @@ class FinanceData(APIView):
             financial_data.delete()
             return Response("Financial data deleted successfully", status=status.HTTP_204_NO_CONTENT)
         return Response("No financial data found with this email", status=status.HTTP_404_NOT_FOUND)
-

@@ -31,14 +31,13 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    """Customizes JWT default Serializer to add more information about user"""
+
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-
-        # Add custom claims
-        token['name'] = user.name
+        token['username'] = user.username
         token['email'] = user.email
-
         return token
 
 
@@ -51,7 +50,6 @@ class FinancialDataSerializer(serializers.ModelSerializer):
 
 
 class FinancialDataCreateSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = FinancialData
         fields = '__all__'
