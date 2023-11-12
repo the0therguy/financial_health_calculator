@@ -115,7 +115,7 @@ class FinanceData(APIView):
         try:
             return FinancialData.objects.get(pk=pk)
         except FinancialData.DoesNotExist:
-            raise None
+            return None
 
     def get(self, request, pk):
         financial_data = self.get_object(pk)
