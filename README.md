@@ -58,3 +58,7 @@ The server will start at `http://127.0.0.1:8000/`.
 
 ## Contact
 For any inquiries, reach out to email: ifty545@gmail.com.
+
+live URL: https://financial-health-calculator.onrender.com/
+
+documentation URL: https://documenter.getpostman.com/view/26097877/2s9YXmWerY
