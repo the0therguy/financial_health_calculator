@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 from datetime import timedelta
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -187,8 +190,8 @@ DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
     }
 }
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_PORT = 587  # Replace with your email port
-EMAIL_USE_TLS = True  # Set to False if your email server doesn't use TLS
-EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email host for gmail -> 'smtp.gmail.com'
-EMAIL_HOST_USER = 'fejanic.chowdhury@gmail.com'  # Replace with your email username
-EMAIL_HOST_PASSWORD = 'jqwvwhcwmuklogex'  # Replace with your email password
+EMAIL_PORT = env('EMAIL_PORT')  # Replace with your email port
+EMAIL_USE_TLS = env('EMAIL_USE_TLS')  # Set to False if your email server doesn't use TLS
+EMAIL_HOST = env('EMAIL_HOST')  # Replace with your email host for gmail -> 'smtp.gmail.com'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')  # Replace with your email username
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')  # Replace with your email password
